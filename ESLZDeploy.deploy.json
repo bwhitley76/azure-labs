@@ -33,11 +33,14 @@
     },
     "PrivateCloudSKU": {
       "type": "string",
-      "defaultValue": "AV36P",
+      "defaultValue": "AV36",
       "allowedValues": [
         "AV36",
         "AV36T",
-        "AV36P"
+        "AV36P",
+        "AV36PT",
+        "AV52",
+        "AV64"
       ],
       "metadata": {
         "description": "The SKU that should be used for the first cluster, ensure you have quota for the given SKU before deploying"
@@ -723,10 +726,10 @@
                       "name": "[format('{0}-PIP', variables('GatewayName'))]",
                       "location": "[parameters('Location')]",
                       "properties": {
-                        "publicIPAllocationMethod": "Dynamic"
+                        "publicIPAllocationMethod": "Static"
                       },
                       "sku": {
-                        "name": "Basic",
+                        "name": "Standard",
                         "tier": "Regional"
                       }
                     },
